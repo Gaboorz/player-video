@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <!-- Asegura que el video se adapte a la pantalla móvil -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Video</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;  /* Relación de aspecto 16:9 */
+        height: 0;
+      }
+      .video-container video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="video-container">
+      <video id="myVideo" playsinline webkit-playsinline autoplay loop muted>
+        <source src="https://assets.jumpseller.com/store/brangustore/themes/488744/Video-producto-_Promoci%C3%B3n-relojes_.webm?key=f7be6806c0efe375370ef25bfc5bac8a" type="video/webm">
+        Tu navegador no soporta este video.
+      </video>
+    </div>
+    <script>
+      // Intento adicional de iniciar la reproducción automáticamente.
+      document.addEventListener("DOMContentLoaded", function() {
+        var video = document.getElementById("myVideo");
+        video.play().catch(function(error) {
+          console.log("Autoplay pudo haber sido bloqueado:", error);
+        });
+      });
+    </script>
+  </body>
+</html>
