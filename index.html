@@ -2,34 +2,19 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8">
+    <!-- Asegura que el video se adapte a la pantalla móvil -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reproductor de Video</title>
     <style>
-      /* Elimina márgenes y padding en móviles */
-      @media (max-width: 768px) {
-        .contenedor-video {
-          margin: 0 !important;
-          padding: 0 !important;
-          width: 100vw !important;
-        }
+      html, body {
+        margin: 0;
+        padding: 0;
       }
-
-      /* Contenedor principal del video */
-      .contenedor-video {
-        position: relative;
-        width: 100%;
-        max-width: 800px; /* Ajusta el tamaño en pantallas grandes */
-        margin: auto;
-      }
-
-      /* Contenedor que mantiene la proporción del video */
       .video-container {
         position: relative;
-        padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+        padding-bottom: 56.25%;  /* Relación de aspecto 16:9 */
         height: 0;
       }
-
-      /* Ajuste del video para ocupar todo el contenedor */
       .video-container video {
         position: absolute;
         top: 0;
@@ -40,16 +25,14 @@
     </style>
   </head>
   <body>
-    <div class="contenedor-video">
-      <div class="video-container">
-        <video id="myVideo" playsinline webkit-playsinline autoplay loop muted>
-          <source src="https://assets.jumpseller.com/store/brangustore/themes/488744/STYLE.webm?key=0c68b5303804b60bb86be72c0756d3d8" type="video/webm">
-          Tu navegador no soporta este video.
-        </video>
-      </div>
+    <div class="video-container">
+      <video id="myVideo" playsinline webkit-playsinline autoplay loop muted>
+        <source src="https://assets.jumpseller.com/store/brangustore/themes/488744/STYLE.webm?key=0c68b5303804b60bb86be72c0756d3d8" type="video/webm">
+        Tu navegador no soporta este video.
+      </video>
     </div>
     <script>
-      // Intento de reproducción automática con manejo de errores
+      // Intento adicional de iniciar la reproducción automáticamente.
       document.addEventListener("DOMContentLoaded", function() {
         var video = document.getElementById("myVideo");
         video.play().catch(function(error) {
