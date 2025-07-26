@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Permite que el navegador acepte esquemas de color oscuros dentro de iframes -->
-  <meta name="color-scheme" content="dark light">  
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
   <title>Video 1</title>
+
   <style>
-    /* 1) Base negro + !important para forzar override */
+    /* 🖤 Base negra absoluta */
     html, body {
       margin: 0 !important;
       padding: 0 !important;
       height: 100% !important;
       background-color: black !important;
-      color: white; /* sólo si llegas a tener texto */
+      color: white;
     }
 
-    /* 2) Contenedor ratio 16:9 con fondo negro */
+    /* 🎥 Contenedor estilo 16:9 */
     .video-container {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
+      padding-bottom: 56.25%;
       height: 0;
       background-color: black !important;
+      overflow: hidden;
     }
 
-    /* 3) El propio <video> también con fondo negro */
+    /* 🔲 Video embebido sin bordes ni sombras */
     .video-container video {
       position: absolute;
       top: 0;
@@ -33,24 +33,25 @@
       width: 100%;
       height: 100%;
       background-color: black !important;
+      object-fit: cover;
+      display: block;
     }
   </style>
 </head>
 <body>
   <div class="video-container">
-    <video 
-      playsinline 
-      webkit-playsinline 
-      autoplay 
-      loop 
-      muted 
+    <video
+      playsinline
+      webkit-playsinline
+      autoplay
+      loop
+      muted
       controls
-      style="background-color:black !important;"  <!-- redundante por si acaso -->
+      preload="auto"
     >
-      <source src="URL_DEL_VIDEO_1.webm" type="video/webm">
+      <source src="URL_DEL_VIDEO_1.webm" type="video/webm" />
       Tu navegador no soporta este video.
     </video>
   </div>
 </body>
 </html>
-
