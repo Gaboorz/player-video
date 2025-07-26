@@ -3,38 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Permite que el navegador acepte esquemas de color oscuros dentro de iframes -->
+  <meta name="color-scheme" content="dark light">  
+
   <title>Video 1</title>
   <style>
+    /* 1) Base negro + !important para forzar override */
     html, body {
-      margin: 0;
-      padding: 0;
-      background-color: black; /* Fondo negro total */
-      color: white; /* Por si hay texto o errores */
-      height: 100%; /* Asegura cobertura completa */
+      margin: 0 !important;
+      padding: 0 !important;
+      height: 100% !important;
+      background-color: black !important;
+      color: white; /* sólo si llegas a tener texto */
     }
 
+    /* 2) Contenedor ratio 16:9 con fondo negro */
     .video-container {
       position: relative;
       padding-bottom: 56.25%; /* 16:9 */
       height: 0;
-      background-color: black; /* Fondo dentro del contenedor también negro */
+      background-color: black !important;
     }
 
+    /* 3) El propio <video> también con fondo negro */
     .video-container video {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      background-color: black !important;
     }
   </style>
 </head>
 <body>
   <div class="video-container">
-    <video playsinline webkit-playsinline autoplay loop muted controls>
+    <video 
+      playsinline 
+      webkit-playsinline 
+      autoplay 
+      loop 
+      muted 
+      controls
+      style="background-color:black !important;"  <!-- redundante por si acaso -->
+    >
       <source src="URL_DEL_VIDEO_1.webm" type="video/webm">
       Tu navegador no soporta este video.
     </video>
   </div>
 </body>
 </html>
+
